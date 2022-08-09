@@ -1,0 +1,22 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: online-store-microservice-config-server
+  profiles:
+    active:
+      - native, git
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+        git:
+          uri: https://github.com/turaevdv/OnlineStoreMicroserviceConfigRepository.git
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
